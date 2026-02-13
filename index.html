@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sérgio Rodrigues Advocacia — Compromisso com a Justiça</title>
+  <meta name="description" content="Sérgio Rodrigues Advocacia — Direito Civil, Penal e Trabalhista. Atendimento em Belém/PA e on-line para todo o Brasil." />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue-100:#DBEAFE;
+      --blue-300:#93C5FD;
+      --blue-500:#3B82F6;
+      --blue-600:#2563EB;
+      --blue-700:#1D4ED8;
+      --ink-0:#0b0f14;
+      --ink-1:#0f141b;
+      --ink-2:#131a22;
+      --text-1:#e6eefb;
+      --text-2:#b4c2db;
+      --radius-1:14px;
+      --radius-2:22px;
+      --shadow-1:0 10px 30px rgba(0,0,0,.25);
+      --shadow-2:0 20px 50px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--ink-0);color:var(--text-1);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";}
+    a{color:var(--blue-300);text-decoration:none}
+    a:hover{color:var(--blue-100)}
+    .container{width:min(1180px, 92vw);margin:0 auto}
+    /* ==== New Header Styles ==== */
+    .site-header{
+      position: sticky; top: 0; z-index: 60;
+      display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 16px;
+      padding: 14px 0;
+      background: linear-gradient(to bottom, var(--ink-2), rgba(15,20,27,.8));
+      backdrop-filter: saturate(160%) blur(8px);
+      border-bottom: 1px solid rgba(59,130,246,.18);
+    }
+    .site-header .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .site-header .brand img{width:44px; height:44px; object-fit:contain; filter: drop-shadow(0 2px 10px rgba(59,130,246,.35));}
+    .brand-text{display:flex; flex-direction:column; line-height:1}
+    .brand-name{font-weight:800; letter-spacing:.6px}
+    .brand-tag{font-size:12px; color:var(--text-2); letter-spacing:.4px}
+    .nav{display:flex; gap:18px; align-items:center}
+    .nav a{padding:10px 12px; border-radius:10px; color:var(--text-2)}
+    .nav a:hover{color:var(--text-1); background:rgba(59,130,246,.08)}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:10px 16px; border-radius:999px; font-weight:600}
+    .btn-outline{border:1px solid rgba(59,130,246,.35); color:var(--blue-300)}
+    .btn-outline:hover{background:rgba(59,130,246,.08)}
+    .nav-toggle{display:none; background:transparent; border:0; font-size:22px; color:var(--text-1); padding:8px 10px; border-radius:8px}
+    @media (max-width: 860px){
+      .site-header{grid-template-columns: 1fr auto auto}
+      .nav{display:none; position:absolute; right:16px; top:60px; flex-direction:column; background:rgba(13,18,25,.98); border:1px solid rgba(59,130,246,.18); border-radius:14px; padding:10px; box-shadow:var(--shadow-2)}
+      .nav.open{display:flex}
+      .nav-toggle{display:inline-block}
+    }
+    /* ==== End Header Styles ==== */
+
+    /* Hero */
+    .hero{position:relative;padding:96px 0 64px;background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(37,99,235,.20), transparent 70%),
+      radial-gradient(800px 400px at 90% 10%, rgba(59,130,246,.16), transparent 60%)}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:38px;align-items:center}
+    .hero h1{font-size:clamp(28px, 3.6vw, 56px);line-height:1.05;margin:0 0 12px}
+    .hero p{color:var(--text-2);font-size:clamp(15px,1.4vw,18px)}
+    .pill{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid rgba(59,130,246,.35);border-radius:999px;font-size:13px;color:var(--blue-300);background:rgba(59,130,246,.06)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+    .stat{padding:16px;border-radius:var(--radius-1);background:linear-gradient(180deg,rgba(19,26,34,.9),rgba(11,15,20,.9));border:1px solid rgba(59,130,246,.14)}
+    .stat b{font-size:22px;color:var(--blue-300)}
+    .hero-card{padding:22px;border-radius:var(--radius-2);background:linear-gradient(180deg,rgba(13,18,25,.95),rgba(9,13,18,.95));border:1px solid rgba(59,130,246,.18);box-shadow:var(--shadow-2)}
+    .hero-card h3{margin:0 0 8px}
+    .badge{display:inline-block;font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(59,130,246,.12);color:var(--blue-300);border:1px solid rgba(59,130,246,.25)}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    /* Sections */ 
+    section{padding:70px 0;border-top:1px solid rgba(59,130,246,.12)}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}
+    .section-head h2{margin:0;font-size:clamp(22px,2.6vw,34px)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{padding:20px;border-radius:var(--radius-1);background:linear-gradient(180deg,rgba(19,26,34,.9),rgba(11,15,20,.88));border:1px solid rgba(59,130,246,.14);transition:transform .2s ease}
+    .card:hover{transform:translateY(-3px)}
+    .card p{margin:0;color:var(--text-2)}
+    .chip{display:inline-flex;gap:8px;flex-wrap:wrap}
+    .chip span{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(59,130,246,.1);color:var(--blue-300);border:1px solid rgba(59,130,246,.2)}
+    /* About */ 
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .about .box{padding:22px;border-radius:var(--radius-1);background:linear-gradient(180deg,rgba(19,26,34,.9),rgba(11,15,20,.88));border:1px solid rgba(59,130,246,.14)}
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(59,130,246,.22);background:#0d131b;color:var(--text-1)}
+    textarea{min-height:120px;resize:vertical}
+    label{display:block;font-size:14px;color:var(--text-2);margin-bottom:8px}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    form .actions{margin-top:12px}
+    /* Footer */
+    footer{margin-top:60px;border-top:1px solid rgba(59,130,246,.14);padding:26px 0;color:var(--text-2)}
+    .foot{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .foot small{opacity:.9}
+    .foot-brand{display:flex;align-items:center;gap:10px}
+    .foot-brand .foot-logo{width:24px;height:24px;display:grid;place-items:center;border-radius:6px;overflow:hidden;background:radial-gradient(60% 60% at 50% 40%, var(--blue-700), var(--blue-500))}
+    .foot-brand .foot-logo img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 6px rgba(59,130,246,.35));}
+    /* Responsive stacks */
+    @media (max-width: 960px){
+      .hero-grid, .about, .contact-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="topo">
+    <a href="#topo" class="brand">
+      <img src="assets/logo.png" alt="Monograma SR" />
+      <div class="brand-text">
+        <span class="brand-name">SÉRGIO RODRIGUES</span> 
+        <span class="brand-tag">ADVOCACIA & CONSULTORIA JURÍDICA</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="Menu principal">
+      <a href="#areas">Áreas</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato" class="btn btn-outline">Contato</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Atuação estratégica • Defesa técnica • Atendimento on-line</span>
+          <h1>Advocacia moderna, com 
+            <span style="background:linear-gradient(90deg,var(--blue-300),var(--blue-100));-webkit-background-clip:text;background-clip:text;color:transparent">clareza</span> e 
+            <span style="background:linear-gradient(90deg,var(--blue-500),var(--blue-300));-webkit-background-clip:text;background-clip:text;color:transparent">resultado</span>.</h1>
+          <p>Direito Civil, Penal e Trabalhista. Escritório em Belém/PA, atendimento on-line para todo o Brasil.</p>
+          <div class="stats">
+            <div class="stat"><b>10+ anos</b><br><small class="muted">de experiência</small></div>
+            <div class="stat"><b>Resposta ágil</b><br><small class="muted">via WhatsApp</small></div>
+            <div class="stat"><b>Estratégia</b><br><small class="muted">orientada a dados</small></div>
+          </div>
+          <div class="btn-row">
+            <a class="btn btn-outline" href="#contato">Enviar mensagem</a>
+            <a class="btn" style="background:linear-gradient(180deg,var(--blue-500),var(--blue-700));color:white;box-shadow:0 10px 22px rgba(59,130,246,.25)" href="#areas">Ver áreas de atuação</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="destaque">
+          <span class="badge">Atendimento imediato</span>
+          <h3>Precisa de orientação agora?</h3>
+          <p style="color:var(--text-2)">Relate o caso em poucas linhas e receba os próximos passos com transparência.</p>
+          <ul style="margin:0 0 10px 18px;color:var(--text-2)">
+            <li>Consulta on-line</li>
+            <li>Envio de documentos em ambiente seguro</li>
+            <li>Contrato e pagamento digital</li>
+          </ul>
+          <a class="btn" style="background:linear-gradient(180deg,var(--blue-500),var(--blue-700));color:white;box-shadow:0 10px 22px rgba(59,130,246,.25)" href="#contato">Começar atendimento</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="areas">
+      <div class="container">
+        <div class="section-head">
+          <h2>Áreas de atuação</h2>
+          <span class="badge">Foco prático no seu resultado</span>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3>Cível</h3>
+            <p>Contratos, indenizações, consumo, obrigações e responsabilidade civil.</p>
+            <div class="chip" style="margin-top:10px"><span>Contratos</span><span>Indenizações</span><span>CDC</span></div>
+          </article>
+          <article class="card">
+            <h3>Penal</h3>
+            <p>Defesas, recursos e acompanhamento em inquérito e processo penal.</p>
+            <div class="chip" style="margin-top:10px"><span>Defesa técnica</span><span>Habeas corpus</span><span>Audiências</span></div>
+          </article>
+          <article class="card">
+            <h3>Trabalhista</h3>
+            <p>Reclamações, acordos, cálculos e estratégia para empregados e empresas.</p>
+            <div class="chip" style="margin-top:10px"><span>Horas extras</span><span>Verbas rescisórias</span><span>Acordos</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container about">
+        <div class="box">
+          <h2>Sobre o escritório</h2>
+          <p style="color:var(--text-2)">Atuação humanizada, técnica e transparente. Cada caso recebe um plano de ação objetivo, cronograma e comunicação contínua.</p>
+          <ul style="margin:0 0 0 18px;color:var(--text-2)">
+            <li>OAB/PA 33.942 — Sérgio Rodrigues Advocacia</li>
+            <li>Atendimento presencial em Belém/PA e on-line em todo o Brasil</li>
+            <li>Documentos e contratos com assinatura digital</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Metodologia</h3>
+          <p style="color:var(--text-2)">Diagnóstico rápido, mapeamento de provas, definição de tese e estratégia de negociação ou contencioso. Comunicação clara e prazos realistas.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container contact-grid">
+        <div>
+          <h2>Entre em contato</h2>
+          <p style="color:var(--text-2)">Conte o essencial: área do direito, situação e objetivo. Responderemos com os próximos passos.</p>
+          <div class="card" style="margin-top:10px">
+            <p style="margin:0 0 8px 0">WhatsApp: <a href="https://wa.me/5591982096180" target="_blank" rel="noopener">(91) 98209-6180</a></p>
+            <p style="margin:0">E-mail: <a href="mailto:sergiosradv@hotmail.com">sergiosradv@hotmail.com</a></p>
+          </div>
+        </div>
+        <form class="card" onsubmit="event.preventDefault(); alert('Mensagem enviada! (demo)');">
+          <div class="row">
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" required placeholder="Seu nome" />
+            </div>
+            <div>
+              <label for="email">E-mail</label>
+              <input id="email" type="email" required placeholder="voce@email.com" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="fone">Telefone/WhatsApp</label>
+              <input id="fone" placeholder="(91) 9XXXX-XXXX" />
+            </div>
+            <div>
+              <label for="area">Área</label>
+              <input id="area" placeholder="Cível, Penal, Trabalhista…" />
+            </div>
+          </div>
+          <div style="margin-top:12px">
+            <label for="msg">Mensagem</label>
+            <textarea id="msg" placeholder="Explique em poucas linhas sua situação"></textarea>
+          </div>
+          <div class="actions">
+            <button class="btn" style="background:linear-gradient(180deg,var(--blue-500),var(--blue-700));color:white;box-shadow:0 10px 22px rgba(59,130,246,.25)" type="submit">Enviar</button>
+            <a class="btn btn-outline" href="https://wa.me/5591982096180" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="foot-brand">
+        <div class="foot-logo"><img src="assets/logo.png" alt="Sérgio Rodrigues Advocacia"></div>
+        <small>Sérgio Rodrigues Advocacia — Compromisso com a Justiça</small>
+      </div>
+      <small>© <span id="year"></span> Sérgio Rodrigues Advocacia — Belém/PA • Atendimento on-line para todo o Brasil</small>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>
+    (function(){
+      var btn = document.querySelector('.nav-toggle');
+      var nav = document.querySelector('.site-header .nav');
+      if(btn && nav){
+        btn.addEventListener('click', function(){
+          var open = nav.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        nav.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
